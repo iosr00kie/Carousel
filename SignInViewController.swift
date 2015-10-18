@@ -12,17 +12,31 @@ import Darwin
 class SignInViewController: UIViewController {
 
     @IBOutlet weak var signInActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var signInView: UIImageView!
+   
     
-    @IBOutlet weak var loginForm: UIImageView!
+    @IBOutlet weak var signInView: UIView!
     
-    var loginFormInitialY: CGFloat!
+    @IBOutlet weak var loginForm: UIView!
     
-    var signInViewInitialY: CGFloat!
+    var loginFormInitialY: CGFloat! = 0
+    
+    var signInViewInitialY: CGFloat! = 0
     
     let loginFormOffset: CGFloat = -70
     
     let signInViewOffset: CGFloat = -200
+    
+    var hasKeyBoardMoved: Bool = false
+    
+    @IBOutlet weak var email: UITextField!
+    
+    @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
+    
+    let alertController = UIAlertController(title: "Invalid Credentials", message: "Email or password are incorrect", preferredStyle: .Alert)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +49,15 @@ class SignInViewController: UIViewController {
         
         signInViewInitialY = signInView.frame.origin.y
         loginFormInitialY = loginForm.frame.origin.y
+        
+        
+        // create an OK action
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            // handle response here.
+        }
+        // add the OK action to the alert controller
+        alertController.addAction(OKAction)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,13 +68,31 @@ class SignInViewController: UIViewController {
     
     @IBAction func didPressSignIn(sender: UIButton) {
         
-        self.signInActivityIndicator.startAnimating()
+        // If fields are empty show a UIAlert View
         
-        delay(3){
+        if(email.text!.isEmpty || password.text!.isEmpty){
             
-        self.performSegueWithIdentifier("timeLineSegue", sender: nil)
+            presentViewController(alertController, animated: true) {
+                // optional code for what happens after the alert controller has finished presenting
+            }
         }
-        
+        else if(email.text == "deepak" && password.text == "password"){
+            self.signInActivityIndicator.hidden = false
+            self.signInActivityIndicator.startAnimating()
+            delay(2){
+                self.performSegueWithIdentifier("timeLineSegue", sender: nil)
+            }
+        }
+        else if(email.text != "deepak" || password.text != "password"){
+            self.signInActivityIndicator.startAnimating()
+            delay(2){
+                self.signInActivityIndicator.hidden = true
+                self.presentViewController(self.alertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+            }
+            self.signInActivityIndicator.hidden = false
+        }
     }
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {
@@ -61,17 +102,23 @@ class SignInViewController: UIViewController {
     
     func keyboardWillShow(notification: NSNotification!) {
         
-        loginForm.frame.origin.y = loginForm.frame.origin.y + loginFormOffset
-        
-        signInView.frame.origin.y = signInView.frame.origin.y + signInViewOffset
+        if(hasKeyBoardMoved == false) {
+            
+            loginForm.frame.origin.y = loginForm.frame.origin.y + loginFormOffset
+            signInView.frame.origin.y = signInView.frame.origin.y + signInViewOffset
+            hasKeyBoardMoved = true
+        }
         
         
     }
     
     func keyboardWillHide(notification: NSNotification!) {
         
-        loginForm.frame.origin.y = loginFormInitialY
-        signInView.frame.origin.y = signInViewInitialY
+        if(hasKeyBoardMoved == true) {
+            loginForm.frame.origin.y = loginFormInitialY
+            signInView.frame.origin.y = signInViewInitialY
+            hasKeyBoardMoved = false
+        }
     }
 
     

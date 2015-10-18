@@ -217,45 +217,58 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_form" id="dho-Wv-alr">
-                                <rect key="frame" x="-1" y="146" width="321" height="128"/>
+                            <view contentMode="scaleToFill" id="7aA-9Y-3JY" userLabel="Form View">
+                                <rect key="frame" x="1" y="146" width="315" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" id="9kc-YF-567" userLabel="username">
-                                <rect key="frame" x="20" y="169" width="280" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="47k-Yk-kfZ" userLabel="password">
-                                <rect key="frame" x="20" y="216" width="280" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sign_in_buttons" id="MUh-l7-kqJ">
-                                <rect key="frame" x="1" y="419" width="320" height="104"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4rR-Om-3Cu" userLabel="Sign In Button">
-                                <rect key="frame" x="21" y="432" width="280" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="didPressSignIn:" destination="auI-9I-xWL" eventType="touchUpInside" id="xhT-7J-jeZ"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_form" id="dho-Wv-alr">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="9kc-YF-567" userLabel="username">
+                                        <rect key="frame" x="19" y="17" width="280" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="47k-Yk-kfZ" userLabel="password">
+                                        <rect key="frame" x="19" y="72" width="280" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ue1-gB-4bE">
-                                <rect key="frame" x="122" y="531" width="46" height="30"/>
+                                <rect key="frame" x="143" y="531" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="J6c-5I-xsj" kind="modal" identifier="timeLineSegue" id="USp-uh-DEG"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="2C1-hP-ZWd">
-                                <rect key="frame" x="244" y="437" width="37" height="37"/>
+                            <view contentMode="scaleToFill" id="eCg-kU-6GO" userLabel="Buttons View">
+                                <rect key="frame" x="0.0" y="401" width="320" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="sign_in_buttons" id="MUh-l7-kqJ">
+                                        <rect key="frame" x="0.0" y="9" width="320" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4rR-Om-3Cu" userLabel="Sign In Button">
+                                        <rect key="frame" x="20" y="23" width="280" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="didPressSignIn:" destination="auI-9I-xWL" eventType="touchUpInside" id="xhT-7J-jeZ"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="2C1-hP-ZWd">
+                                        <rect key="frame" x="254" y="28" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -264,9 +277,12 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="loginForm" destination="dho-Wv-alr" id="wn5-Ou-N7o"/>
+                        <outlet property="email" destination="9kc-YF-567" id="u3t-xs-2yr"/>
+                        <outlet property="loginForm" destination="7aA-9Y-3JY" id="9k8-7t-w6m"/>
+                        <outlet property="password" destination="47k-Yk-kfZ" id="9WH-Ks-8Gm"/>
                         <outlet property="signInActivityIndicator" destination="2C1-hP-ZWd" id="8Ok-WL-A8g"/>
-                        <outlet property="signInView" destination="MUh-l7-kqJ" id="OOp-Bk-FOo"/>
+                        <outlet property="signInButton" destination="4rR-Om-3Cu" id="4ic-ro-8dS"/>
+                        <outlet property="signInView" destination="eCg-kU-6GO" id="2bv-W4-tSn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2q3-V4-E2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
